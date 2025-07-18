@@ -1,0 +1,114 @@
+Steps to be followed to create the menu  
+Step1. Create Android resource directory by clicking res>>new>>Android Resource directory, give 
+the name as menu 
+Step2. Right click menu folder click new>> Menu Resource File, give the name of the file as menus. 
+
+
+Add the following code in menus.xml 
+<?xml version="1.0" encoding="utf-8"?> 
+<menu xmlns:android="http://schemas.android.com/apk/res/android"> 
+<item android:id="@+id/php"  android:title="PHP"/> 
+<item android:id="@+id/java"  android:title="JAVA"/> 
+<item android:id="@+id/csharp"  android:title="C#"/> 
+</menu> 
+ 
+ 
+ 
+ 
+Step 3. =>Coding part of Activity_main.xml ( Remove Helloworld textview control) 
+<?xml version="1.0" encoding="utf-8"?> 
+<androidx.constraintlayout.widget.ConstraintLayout 
+xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:app="http://schemas.android.com/apk/res-auto" 
+    xmlns:tools="http://schemas.android.com/tools" 
+    android:id="@+id/main" 
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent" 
+    tools:context=".MainActivity"> 
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+ 
+Step 4. =>Coding part of MainActivity.java 
+ 
+package com.example.menuapp; 
+ 
+import android.os.Bundle; 
+import androidx.activity.EdgeToEdge; 
+import androidx.appcompat.app.AppCompatActivity; 
+import androidx.core.graphics.Insets; 
+import androidx.core.view.ViewCompat; 
+import androidx.core.view.WindowInsetsCompat; 
+import android.view.Menu; 
+import android.view.MenuInflater; 
+import android.view.MenuItem; 
+import android.widget.Toast; 
+ 
+ 
+public class MainActivity extends AppCompatActivity { 
+ 
+    @Override 
+    protected void onCreate(Bundle savedInstanceState) { 
+        super.onCreate(savedInstanceState); 
+        EdgeToEdge.enable(this); 
+        setContentView(R.layout.activity_main); 
+    } 
+ 
+    @Override 
+    public boolean onCreatePanelMenu(int featureId,Menu menu) 
+    { 
+        MenuInflater inflater=getMenuInflater();  
+        inflater.inflate(R.menu.menus,menu); 
+        return true; 
+    } 
+    @Override 
+    public boolean onOptionsItemSelected(MenuItem item) 
+    { 
+        if(item.getItemId()==R.id.php) { 
+        Toast.makeText(this, "Php Page", Toast.LENGTH_SHORT).show(); 
+        } 
+        if(item.getItemId()==R.id.java) { 
+            Toast.makeText(this, "Java Page", Toast.LENGTH_SHORT).show(); 
+        } 
+        if(item.getItemId()==R.id.csharp) { 
+            Toast.makeText(this, "C# Page", Toast.LENGTH_SHORT).show(); 
+        } 
+        return true; 
+    } 
+  } 
+
+
+
+
+
+ 
+ 
+ 
+Step 5. Change the theme value AndroidManifest.xml file 
+ 
+<?xml version="1.0" encoding="utf-8"?> 
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:tools="http://schemas.android.com/tools"> 
+    <application 
+        android:allowBackup="true" 
+        android:dataExtractionRules="@xml/data_extraction_rules" 
+        android:fullBackupContent="@xml/backup_rules" 
+        android:icon="@mipmap/ic_launcher" 
+        android:label="@string/app_name" 
+        android:roundIcon="@mipmap/ic_launcher_round" 
+        android:supportsRtl="true" 
+        android:theme="@style/Theme.AppCompat.Light" 
+        tools:targetApi="31"> 
+        <activity 
+            android:name=".MainActivity" 
+            android:exported="true"> 
+            <intent-filter> 
+                <action android:name="android.intent.action.MAIN" /> 
+ 
+                <category android:name="android.intent.category.LAUNCHER"/> 
+            </intent-filter> 
+        </activity> 
+    </application> 
+</manifest> 
