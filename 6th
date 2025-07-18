@@ -1,0 +1,208 @@
+=>Coding part of Activity_main.xml  
+ 
+<?xml version="1.0" encoding="utf-8"?> 
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" 
+ 
+ 
+    xmlns:app="http://schemas.android.com/apk/res-auto" 
+    xmlns:tools="http://schemas.android.com/tools" 
+    android:id="@+id/main" 
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent" 
+    tools:context=".MainActivity"> 
+ 
+    <LinearLayout 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="vertical" 
+        android:padding="16dp"> 
+ 
+    <TextView 
+        android:id="@+id/textView" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:text="This is a TextView" 
+        android:textSize="18sp" 
+        android:layout_marginBottom="16dp"/> 
+ 
+    <EditText 
+        android:id="@+id/editText" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:hint="Enter your text here" 
+        android:layout_marginBottom="16dp" /> 
+ 
+    <Button 
+        android:id="@+id/button" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:text="Click Me" 
+        android:layout_marginBottom="16dp" /> 
+ 
+    <CheckBox 
+        android:id="@+id/checkbox" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:text="Check Me" 
+        android:layout_marginBottom="16dp" /> 
+     <TextView 
+            android:id="@+id/textView1" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:text="Which Section You belong to" 
+            android:textSize="20sp" 
+            android:layout_marginBottom="16dp"/> 
+    <RadioGroup 
+        android:id="@+id/radioGroup" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:orientation="vertical" 
+        android:layout_marginBottom="16dp" /> 
+ 
+    <RadioButton 
+        android:id="@+id/radioButton1" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:text="A section" /> 
+ 
+    <RadioButton 
+        android:id="@+id/radioButton2" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+ 
+ 
+        android:text="B Section" /> 
+ 
+    <Switch 
+        android:id="@+id/switch1" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:text="Switch Testing" 
+        android:layout_marginBottom="16dp"/> 
+    <TextView 
+            android:id="@+id/textView2" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:text="Select your favourite Programming Language" 
+            android:textSize="20sp" 
+            android:layout_marginBottom="16dp"/> 
+    <Spinner 
+        android:id="@+id/spinner" 
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:layout_marginBottom="16dp"/> 
+    <TextView 
+            android:id="@+id/textView3" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:text="Progress Bar" 
+            android:textSize="20sp" 
+            android:layout_marginBottom="16dp"/> 
+    <ProgressBar 
+            android:id="@+id/progressBar" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal" 
+            android:progress="25" 
+            android:layout_marginBottom="16dp" /> 
+    <TextView 
+            android:id="@+id/textView4" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:text="Select the number between 1 to 50" 
+            android:textSize="20sp" 
+            android:layout_marginBottom="16dp"/> 
+     <NumberPicker 
+            android:id="@+id/numberPicker1" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:layout_marginBottom="16dp"/> 
+     <TextView 
+            android:id="@+id/textView5" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:text="Select your date of birth" 
+            android:textSize="20sp" 
+            android:layout_marginBottom="16dp"/> 
+     <DatePicker 
+        android:id="@+id/datePicker" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_marginBottom="16dp"/> 
+    <TextView 
+            android:id="@+id/textView6" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content" 
+            android:text="Set the next class hour time" 
+            android:textSize="20sp" 
+            android:layout_marginBottom="16dp"/> 
+ 
+ 
+    <TimePicker 
+        android:id="@+id/timePicker" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_marginBottom="16dp"/> 
+ 
+    </LinearLayout> 
+ 
+</ScrollView> 
+
+
+
+
+
+
+
+ 
+ 
+=>Coding part of MainActivity.java 
+ 
+package com.example.mainactivity; 
+ 
+import android.os.Bundle; 
+import android.widget.ArrayAdapter; 
+import android.widget.Spinner; 
+ 
+import androidx.activity.EdgeToEdge; 
+import androidx.appcompat.app.AppCompatActivity; 
+import androidx.core.graphics.Insets; 
+import androidx.core.view.ViewCompat; 
+import androidx.core.view.WindowInsetsCompat; 
+ 
+import java.util.ArrayList; 
+import android.widget.NumberPicker; 
+ 
+public class MainActivity extends AppCompatActivity { 
+ 
+    @Override 
+    protected void onCreate(Bundle savedInstanceState) { 
+        super.onCreate(savedInstanceState); 
+        EdgeToEdge.enable(this); 
+        setContentView(R.layout.activity_main); 
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> { 
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars()); 
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom); 
+            return insets; 
+        }); 
+        Spinner spinner = findViewById(R.id.spinner); 
+        ArrayList<String> arrayList = new ArrayList<>(); 
+        arrayList.add("Select Language"); 
+        arrayList.add("JAVA"); 
+        arrayList.add("ANDROID"); 
+        arrayList.add("C Language"); 
+        arrayList.add("CPP Language"); 
+        arrayList.add("Python Programming"); 
+ 
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, 
+                android.R.layout.simple_spinner_item, arrayList); 
+          arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); 
+        spinner.setAdapter(arrayAdapter); 
+ 
+ 
+        NumberPicker numberPicker1 = findViewById(R.id.numberPicker1); 
+        numberPicker1.setMinValue(1); 
+        numberPicker1.setMaxValue(50); 
+ 
+    } 
+}
